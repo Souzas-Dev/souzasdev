@@ -1,0 +1,21 @@
+name: Validate documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate required documents
+        shell: bash
+        run: |
+          test -s README.md
+          test -s RELATORIO_PROJETO.md
