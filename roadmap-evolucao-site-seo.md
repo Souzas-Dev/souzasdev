@@ -183,12 +183,12 @@ Nenhum telefone ou e-mail principal será substituído sem confirmação.
 | Fase | Entrega | Status |
 | --- | --- | --- |
 | 0 | Auditoria, baseline e branches | Concluída |
-| 1 | Primeira dobra e posicionamento | Não iniciada |
-| 2 | Serviços concretos | Não iniciada |
-| 3 | Localização, contatos e rodapé | Não iniciada |
-| 4 | Páginas, rotas e navegação | Não iniciada |
-| 5 | Projetos e cases indexáveis | Não iniciada |
-| 6 | Área de Conteúdos | Não iniciada |
+| 1 | Primeira dobra e posicionamento | Concluída |
+| 2 | Serviços concretos | Concluída |
+| 3 | Localização, contatos e rodapé | Concluída |
+| 4 | Páginas, rotas e navegação | Concluída |
+| 5 | Projetos e cases indexáveis | Concluída |
+| 6 | Área de Conteúdos | Em andamento |
 | 7 | SEO on-page e técnico | Não iniciada |
 | 8 | Formulário e acessibilidade | Não iniciada |
 | 9 | Desempenho e responsividade | Não iniciada |
