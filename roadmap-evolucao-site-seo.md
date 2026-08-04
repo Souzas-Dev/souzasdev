@@ -80,7 +80,7 @@ No início da auditoria:
 - formulário de contato;
 - botão e links para WhatsApp;
 - case da Souzas Dev;
-- case da Cafeteria Conceito;
+- case da Estação Café & Prosa (demo conceitual);
 - navegação móvel;
 - favicon;
 - metadados básicos;
