@@ -190,7 +190,7 @@ Nenhum telefone ou e-mail principal será substituído sem confirmação.
 | 5 | Projetos e cases indexáveis | Concluída |
 | 6 | Área de Conteúdos | Concluída |
 | 7 | SEO on-page e técnico | Concluída |
-| 8 | Formulário e acessibilidade | Não iniciada |
+| 8 | Formulário e acessibilidade | Concluída |
 | 9 | Desempenho e responsividade | Não iniciada |
 | 10 | Validação e documentação final | Não iniciada |
 
@@ -228,11 +228,23 @@ Os commits serão criados somente nos repositórios que realmente tiverem arquiv
 - confirmação de que o arquivo .env não foi acessado;
 - validação estrita da codificação UTF-8 do documento de baseline;
 - confirmação de que a acentuação foi preservada.
+- execução completa dos testes automatizados do backend, com 28 testes aprovados;
+- integração do Cloudflare Turnstile no frontend e no backend;
+- validação do token no servidor antes da gravação do contato;
+- validação de hostname e action no ambiente de produção;
+- omissão de remoteip quando o identificador do visitante não é um IP válido;
+- timeout nas requisições do frontend e na consulta ao serviço do Turnstile;
+- bloqueio do botão enquanto API e Turnstile não estão disponíveis;
+- validação da CSP para scripts e frames do Cloudflare;
+- teste local completo com SQLite temporário;
+- rejeição em produção de envio sem token, com resposta HTTP 400;
+- envio completo e bem-sucedido pelo formulário em produção;
+- confirmação da mensagem no painel administrativo;
+- exclusão da mensagem utilizada no teste de produção;
+- validação dos deploys do backend no Render e do frontend na Vercel.
 
 ## 14. Validações ainda pendentes
 
-- execução completa dos testes do backend;
-- testes visuais em desktop, tablet e celular;
 - Chrome DevTools Device Mode;
 - validação em dispositivo físico;
 - Lighthouse antes e depois;
@@ -246,11 +258,39 @@ Os commits serão criados somente nos repositórios que realmente tiverem arquiv
 
 ## 15. Produção
 
-Nesta etapa:
+A Fase 8 foi publicada e validada em produção em 2026-08-06.
 
-- nenhuma alteração foi realizada na main;
-- nenhum push foi realizado;
-- nenhum deploy foi iniciado;
-- nenhum domínio foi alterado;
-- nenhuma variável de ambiente foi alterada;
-- banco, Supabase, Render, Vercel e Cloudflare permaneceram inalterados.
+### Backend
+
+- repositório: Souzas-Dev/souzasdevback;
+- branch de produção: main;
+- commit de merge: e40a316;
+- hospedagem: Render;
+- API: https://api.souzasdev.com;
+- banco em produção: PostgreSQL/Supabase;
+- status da API validado como success;
+- conexão com o banco validada como connected;
+- 28 testes automatizados aprovados antes da publicação.
+
+### Frontend
+
+- repositório: Souzas-Dev/souzasdevfront;
+- branch de produção: main;
+- commit de merge: c4c6962;
+- hospedagem: Vercel;
+- domínio validado: https://souzasdev.com;
+- widget do Cloudflare Turnstile carregado corretamente;
+- formulário validado de ponta a ponta em produção.
+
+### Cloudflare Turnstile
+
+- Site Key pública configurada no frontend;
+- Secret Key configurada somente no ambiente do Render;
+- hostname esperado: souzasdev.com;
+- action esperada: contact_form;
+- timeout da validação no backend: 8000 ms;
+- envio sem token rejeitado com HTTP 400;
+- envio com token válido aceito e gravado;
+- mensagem de teste removida após a validação.
+
+Nenhum domínio, serviço, projeto ou banco foi recriado durante a implementação.
