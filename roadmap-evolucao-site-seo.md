@@ -191,7 +191,7 @@ Nenhum telefone ou e-mail principal será substituído sem confirmação.
 | 6 | Área de Conteúdos | Concluída |
 | 7 | SEO on-page e técnico | Concluída |
 | 8 | Formulário e acessibilidade | Concluída |
-| 9 | Desempenho e responsividade | Não iniciada |
+| 9 | Desempenho e responsividade | Concluída |
 | 10 | Validação e documentação final | Não iniciada |
 
 ## 12. Commits previstos
@@ -205,7 +205,7 @@ Nenhum telefone ou e-mail principal será substituído sem confirmação.
 - feat(content): criar área de conteúdos
 - feat(seo): implementar otimizações de busca
 - fix(a11y): melhorar acessibilidade e formulário
-- perf(frontend): otimizar desempenho e responsividade
+- perf(frontend): otimizar desempenho e responsividade — não criado; a Fase 9 não exigiu alteração de código
 - docs: concluir validações e documentação do site
 
 Os commits serão criados somente nos repositórios que realmente tiverem arquivos alterados em cada fase.
@@ -242,12 +242,21 @@ Os commits serão criados somente nos repositórios que realmente tiverem arquiv
 - confirmação da mensagem no painel administrativo;
 - exclusão da mensagem utilizada no teste de produção;
 - validação dos deploys do backend no Render e do frontend na Vercel.
+- auditoria do peso dos arquivos, imagens e recursos carregados pelo frontend;
+- Lighthouse da página inicial em produção no mobile: desempenho 99, acessibilidade 100, práticas recomendadas 100 e SEO 100;
+- métricas mobile: FCP 1,7 s, LCP 1,7 s, TBT 0 ms e CLS 0;
+- Lighthouse da página inicial em produção no desktop: desempenho 100, acessibilidade 100, práticas recomendadas 100 e SEO 100;
+- métricas desktop: FCP 0,5 s, LCP 0,5 s, Speed Index 0,8 s, TBT 0 ms e CLS 0;
+- análise de Devicon, fontes, cache, recursos externos e solicitações que bloqueiam renderização;
+- confirmação de que o Devicon é utilizado dinamicamente e deve ser mantido;
+- auditoria estática de breakpoints, overflow, min-width, white-space e elementos com position fixed;
+- validação visual responsiva das páginas em 320, 375, 768, 1024 e 1366 px pelo Chrome DevTools Device Mode;
+- nenhuma quebra responsiva relevante foi identificada;
+- nenhuma alteração de código foi necessária na Fase 9.
 
 ## 14. Validações ainda pendentes
 
-- Chrome DevTools Device Mode;
 - validação em dispositivo físico;
-- Lighthouse antes e depois;
 - PageSpeed antes e depois;
 - validação das rotas em Preview Deployment;
 - teste de falha e lentidão da API;
@@ -259,6 +268,8 @@ Os commits serão criados somente nos repositórios que realmente tiverem arquiv
 ## 15. Produção
 
 A Fase 8 foi publicada e validada em produção em 2026-08-06.
+
+A Fase 9 foi concluída em 2026-08-07 sem alterações de código no frontend e, portanto, sem necessidade de novo deploy.
 
 ### Backend
 
