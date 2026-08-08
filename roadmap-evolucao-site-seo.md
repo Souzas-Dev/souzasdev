@@ -192,7 +192,7 @@ Nenhum telefone ou e-mail principal será substituído sem confirmação.
 | 7 | SEO on-page e técnico | Concluída |
 | 8 | Formulário e acessibilidade | Concluída |
 | 9 | Desempenho e responsividade | Concluída |
-| 10 | Validação e documentação final | Não iniciada |
+| 10 | Validação e documentação final | Concluída |
 
 ## 12. Commits previstos
 
@@ -254,22 +254,46 @@ Os commits serão criados somente nos repositórios que realmente tiverem arquiv
 - nenhuma quebra responsiva relevante foi identificada;
 - nenhuma alteração de código foi necessária na Fase 9.
 
-## 14. Validações ainda pendentes
+## 14. Validação e documentação final
 
-- validação em dispositivo físico;
-- PageSpeed antes e depois;
-- validação das rotas em Preview Deployment;
-- teste de falha e lentidão da API;
-- teste do formulário em diferentes estados;
-- inspeção de links e status HTTP;
-- validação de dados estruturados;
-- validação do sitemap e robots.
+### Validações executadas
+
+- correção da codificação dos metadados SEO nas 13 páginas públicas, commit a4ba4b6;
+- validação das 13 páginas públicas em produção, todas respondendo HTTP 200;
+- confirmação da ausência dos casos de mojibake identificados nos metadados corrigidos;
+- validação dos blocos JSON-LD nas 13 páginas públicas;
+- validação do robots.txt;
+- validação do sitemap.xml com 13 URLs públicas e sem rotas administrativas;
+- confirmação de que /admin, /login e /404 não estão presentes no sitemap;
+- validação da página 404 personalizada com resposta HTTP 404;
+- inspeção dos 13 destinos internos de navegação, todos respondendo HTTP 200;
+- exclusão do endpoint /cdn-cgi/l/email-protection da inspeção de links, por pertencer à proteção de e-mail do Cloudflare;
+- validação dos estados de erro do formulário com campos obrigatórios vazios;
+- validação da mensagem geral para revisão dos campos;
+- confirmação do foco automático no primeiro campo inválido;
+- confirmação de que a validação local impede o envio de dados inválidos para a API;
+- simulação de indisponibilidade da API no navegador;
+- confirmação da mensagem "Serviço temporariamente indisponível" durante a falha simulada;
+- confirmação de que o botão de envio permanece desabilitado com a API indisponível;
+- restauração do acesso normal à API após o teste;
+- deploy do frontend no commit a4ba4b6 validado com sucesso na Vercel.
+
+### Validações não executadas no fechamento
+
+- validação em dispositivo físico — não executada;
+- PageSpeed comparativo antes e depois — não executado; a Fase 9 utilizou Lighthouse em produção;
+- validação das rotas em Preview Deployment — não executada;
+- teste específico de lentidão/timeout da API — não executado por decisão durante a Fase 10.
+
+As validações não executadas acima foram registradas de forma explícita e não são consideradas como aprovadas.
 
 ## 15. Produção
 
 A Fase 8 foi publicada e validada em produção em 2026-08-06.
 
 A Fase 9 foi concluída em 2026-08-07 sem alterações de código no frontend e, portanto, sem necessidade de novo deploy.
+
+A Fase 10 foi concluída em 2026-08-08 após as validações finais do frontend e da produção. A correção de codificação dos metadados SEO foi publicada e validada no commit a4ba4b6.
 
 ### Backend
 
@@ -287,7 +311,8 @@ A Fase 9 foi concluída em 2026-08-07 sem alterações de código no frontend e,
 
 - repositório: Souzas-Dev/souzasdevfront;
 - branch de produção: main;
-- commit de merge: c4c6962;
+- commit de integração da Fase 8: c4c6962;
+- commit de produção validado na Fase 10: a4ba4b6;
 - hospedagem: Vercel;
 - domínio validado: https://souzasdev.com;
 - widget do Cloudflare Turnstile carregado corretamente;
